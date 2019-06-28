@@ -45,8 +45,18 @@ services:
             - 8088:8088
             - 8089:8089
             - 9999:9999
-            - 1514:1514                   
-        
+            - 1514:1514
+
+    angular-app:
+        build: ./angular
+        restart: always
+        ports:
+            - "4200:4200"
+        expose:
+            - 4200
+        volumes:
+            - ./angular:/app
+            - /app/node_modules/
 # This will only work on linux as it requires network_mode: host
 # For other platforms run the service in SpringBoot locally or Tomcat       
 #    telemetry:        

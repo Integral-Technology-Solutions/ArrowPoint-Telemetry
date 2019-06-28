@@ -54,10 +54,11 @@
 		ref="canPacketBuilderService" />
 
 
-	<!--  
+
 	
-	If you wish to bind your UDP listener to an explict IP address then you need to uncomment this channel adapter
+	<!--If you wish to bind your UDP listener to an explict IP address then you need to uncomment this channel adapter
 	and comment the one below.  Note you also need to make a change in the applicaiton.properties file
+	-->
 	
 	<int-ip:udp-inbound-channel-adapter
 		id="bridgeReceiver" channel="canbusBridgeChannel" port="${udp.port}"
@@ -65,12 +66,14 @@
 		lookup-host="false" multicast-address="${udp.host}"
 		local-address="${udp.local.address}" /> 
 		
-	-->
+	<!--
 
 	<int-ip:udp-inbound-channel-adapter
 		id="bridgeReceiver" channel="canbusBridgeChannel" port="${udp.port}"
 		receive-buffer-size="1500" multicast="true" check-length="false"
 		lookup-host="false" multicast-address="${udp.host}" />
+
+-->
 
 	<int:channel id="canbusBridgeChannel" />
 
