@@ -4,20 +4,26 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
+import { FirstComponent } from '../components/first/first.component';
+import { SecondComponent } from '../components/second/second.component';
 
 const routes: Routes = [
-   { path: '',  component: DashboardComponent, pathMatch: 'full'}
+   { path: '',  component: DashboardComponent, pathMatch: 'full'},
+   { path: 'first', component: FirstComponent},
+   { path: 'second', component: SecondComponent}
 ];
 
 @NgModule({
   declarations: [
     DashboardComponent,
+    FirstComponent,
+    SecondComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     HttpClientModule,
     CommonModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [
   ],

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/modules/material.module';
 import { Routes, RouterModule,  PreloadAllModules, Route, PreloadingStrategy } from '@angular/router';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { NavOptionComponent } from './components/small-components/nav-option/nav-option.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -15,6 +17,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    NavigationComponent,
+    NavOptionComponent,
   ],
   imports: [
     BrowserModule,
