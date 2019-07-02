@@ -9,13 +9,13 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { Location } from '@angular/common';
 import { CONTEXT } from '@angular/core/src/render3/interfaces/view';
 
-@Injectable({
+ @Injectable({
   providedIn: 'root'
 })
 export class AppAuthGuardService extends KeycloakAuthGuard implements CanActivateChild {
   public kc: KeycloakLoginOptions;
 
-  constructor(
+   constructor(
     protected router: Router,
     public keyCloakAngular: KeycloakService,
     protected context: Location
@@ -23,15 +23,15 @@ export class AppAuthGuardService extends KeycloakAuthGuard implements CanActivat
     super(router, keyCloakAngular);
   }
 
-  public onLogin(destination: string): void {
+   public onLogin(destination: string): void {
     this.keyCloakAngular.login({redirectUri: window.location.origin + destination});
   }
 
-  public onLogout(destination: string): void {
+   public onLogout(destination: string): void {
     this.keyCloakAngular.logout(window.location.origin + destination);
   }
 
-  public refreshToken() {
+   public refreshToken() {
     this.keyCloakAngular.updateToken(180).then(function(refreshed) {
       if (refreshed) {
         console.log('Token was successfully refreshed');
@@ -43,27 +43,27 @@ export class AppAuthGuardService extends KeycloakAuthGuard implements CanActivat
     });
   }
 
-  canActivateChild() {
+   canActivateChild() {
     return this.keyCloakAngular.isLoggedIn();
   }
 
-  isAccessAllowed(route: ActivatedRouteSnapshot,
+   isAccessAllowed(route: ActivatedRouteSnapshot,
                   state: RouterStateSnapshot): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       if (!this.authenticated) {
         this.keyCloakAngular.login();
       }
 
-      const requiredRoles = route.data.roles;
+       const requiredRoles = route.data.roles;
 
-      if (!requiredRoles || requiredRoles.length === 0) {
+       if (!requiredRoles || requiredRoles.length === 0) {
         return resolve(true);
       } else {
         if (!this.roles || this.roles.length === 0) {
           resolve(false);
         }
 
-        /** made a simple algorithm to ensure the user has al of the roles that are passed into the secure angular routes */
+         /** made a simple algorithm to ensure the user has al of the roles that are passed into the secure angular routes */
         let granted = false;
         const goal = route.data.roles.length;
         let score = 0;
@@ -80,11 +80,11 @@ export class AppAuthGuardService extends KeycloakAuthGuard implements CanActivat
     });
   }
 
-  /*
+   /*
     Helper methods to control cookies
   */
 
-  getCookie(cname) {
+   getCookie(cname) {
     const name = cname + '=';
     const decodedCookie = decodeURIComponent(document.cookie);
     const ca = decodedCookie.split(';');
@@ -100,16 +100,16 @@ export class AppAuthGuardService extends KeycloakAuthGuard implements CanActivat
     return '';
   }
 
-  setCookie(cname, cvalue, exdays) {
+   setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     const expires = 'expires=' + d.toUTCString();
     document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
   }
 
-  checkCookie(name: string) {
+   checkCookie(name: string) {
     if (name != null) { // null check
 
-    }
+     }
   }
 }

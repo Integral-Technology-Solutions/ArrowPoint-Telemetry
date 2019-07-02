@@ -15,14 +15,20 @@
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" opened=true>
           <!-- Navigation Options -->
         <mat-nav-list>
-            <app-nav-option name='first'></app-nav-option>
-            <app-nav-option name='second'></app-nav-option>
+            <app-nav-option name='Overview' path='overview'></app-nav-option>
+            <app-nav-option name='BWS Summary' path='bws'></app-nav-option>
+            <app-nav-option name='Real-Time (2min)' path='real-time'></app-nav-option>
+            <app-nav-option name='Short (10min)' path='short'></app-nav-option>
+            <app-nav-option name='Medium (Today)' path='medium'></app-nav-option>
+            <app-nav-option name='Fleet Management' path='fleet-management'></app-nav-option>
+            <app-nav-option name='Config' path='config'></app-nav-option>
         </mat-nav-list>
       </mat-sidenav>
   
       <!-- Dashboard Content -->
-      <mat-sidenav-content> 
-          <router-outlet></router-outlet> <!-- Router -->
+      <mat-sidenav-content>
+        <!-- <app-content-container></app-content-container> -->
+        <router-outlet></router-outlet>
       </mat-sidenav-content>
 
     </mat-sidenav-container>

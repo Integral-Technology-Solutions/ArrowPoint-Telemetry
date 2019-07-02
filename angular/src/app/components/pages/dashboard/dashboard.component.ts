@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavOptionComponent } from '../small-components/nav-option/nav-option.component';
+import { NavOptionComponent } from '../../small-components/nav-option/nav-option.component';
 
 @Component({
   selector: 'app-dashboard',

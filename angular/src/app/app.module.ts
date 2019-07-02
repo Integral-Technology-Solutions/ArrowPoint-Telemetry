@@ -9,12 +9,12 @@ import { Routes, RouterModule,  PreloadAllModules, Route, PreloadingStrategy } f
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavOptionComponent } from './components/small-components/nav-option/nav-option.component';
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { AppAuthGuardService } from 'src/app/services/app-auth-guard.service';
 import { initializer } from './app-init';
+import { AppAuthGuardService } from './services/app-auth-guard.service';
 
 const routes: Routes = [
    { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-   { path: 'dashboard', loadChildren: './modules/dashboard.module#DashboardModule' }
+   { path: 'dashboard', loadChildren: './modules/dashboard.module#DashboardModule', canActivate: [AppAuthGuardService]}
 ];
 
 @NgModule({
@@ -37,6 +37,6 @@ const routes: Routes = [
     deps: [KeycloakService]
   }],
   bootstrap: [AppComponent],
-  exports: [RouterModule]
+  // exports: [RouterModule]
 })
 export class AppModule { }

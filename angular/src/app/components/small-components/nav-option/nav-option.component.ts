@@ -10,6 +10,7 @@ export class NavOptionComponent implements OnInit {
 
   // Component Inputs
   @Input() name: string;
+  @Input() path: string;
 
   constructor(private router: Router) { }
 
@@ -19,7 +20,9 @@ export class NavOptionComponent implements OnInit {
 
   navigate() {
     console.log('navigating to' + this.name);
-    this.router.navigateByUrl('dashboard/' + this.name);
+    this.router.navigateByUrl('dashboard/' + this.path);
+    console.log('routing');
+    console.log(this.path);
 
   }
 
