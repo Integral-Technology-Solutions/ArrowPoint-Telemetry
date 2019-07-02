@@ -6,9 +6,10 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from './material.module';
 import { FirstComponent } from '../components/first/first.component';
 import { SecondComponent } from '../components/second/second.component';
+import { AppAuthGuardService } from '../services/app-auth-guard.service';
 
 const routes: Routes = [
-   { path: '',  component: DashboardComponent, pathMatch: 'full'},
+   { path: '',  component: DashboardComponent, pathMatch: 'full', canActivate: [AppAuthGuardService]},
    { path: 'first', component: FirstComponent},
    { path: 'second', component: SecondComponent}
 ];

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
@@ -8,9 +8,12 @@ import { MaterialModule } from 'src/app/modules/material.module';
 import { Routes, RouterModule,  PreloadAllModules, Route, PreloadingStrategy } from '@angular/router';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { NavOptionComponent } from './components/small-components/nav-option/nav-option.component';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { AppAuthGuardService } from 'src/app/services/app-auth-guard.service';
+import { initializer } from './app-init';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
    { path: 'dashboard', loadChildren: './modules/dashboard.module#DashboardModule' }
 ];
 
@@ -23,10 +26,17 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    KeycloakAngularModule,
     MaterialModule,
     RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules}),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{
+    provide: APP_INITIALIZER,
+    useFactory: initializer,
+    multi: true,
+    deps: [KeycloakService]
+  }],
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }
