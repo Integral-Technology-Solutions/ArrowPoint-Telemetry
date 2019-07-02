@@ -11,6 +11,7 @@ import { NavOptionComponent } from './components/small-components/nav-option/nav
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializer } from './app-init';
 import { AppAuthGuardService } from './services/app-auth-guard.service';
+import { NavMenuComponent } from './components/navigation/nav-menu/nav-menu.component';
 
 const routes: Routes = [
    { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -22,6 +23,7 @@ const routes: Routes = [
     AppComponent,
     NavigationComponent,
     NavOptionComponent,
+    NavMenuComponent,
   ],
   imports: [
     BrowserModule,
