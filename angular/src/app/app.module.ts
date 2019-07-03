@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, APP_INITIALIZER } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
-
-
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { initializer } from './app-init';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -31,6 +31,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
         BrowserAnimationsModule,
         FormsModule,
         HttpClientModule,
+        KeycloakAngularModule,
         NgProgressModule.forRoot(),
         NgProgressHttpClientModule,
         TranslateModule.forRoot({
@@ -48,6 +49,12 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
     ],
     providers: [
       ToasterService,
+      {
+        provide: APP_INITIALIZER,
+        useFactory: initializer,
+        multi: true,
+        deps: [KeycloakService]
+      }
     ],
     bootstrap: [AppComponent]
 })
