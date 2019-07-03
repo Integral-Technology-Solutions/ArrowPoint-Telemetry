@@ -1,0 +1,413 @@
+<div class='row' style='margin: 1em'>
+  <h1>Telemetry Configuration</h1>
+</div>
+<!-- Config Application Table -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Application</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>telemetry.username</td>
+                                <td>admin</td>
+                            </tr>
+                            <tr>
+                                <td>telemetry.password</td>
+                                <td>passw0rd!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Config Splunk Table -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Splunk</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>logging.level.org.springframework.web</td>
+                                <td>INFO</td>
+                            </tr>
+                            <tr>
+                                <td>logging.level.org.hibernate</td>
+                                <td>ERROR</td>
+                            </tr>
+                            <tr>
+                                <td>logging.level.org.hibernate.SQL</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>logging.level.org.hibernate.type.descriptor.sql.BasicBinder</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>logging.level.org.springframework.transaction.interceptor</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Config Weather Data Connection Table -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Weather Data Connection</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>enable.weather.connector</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td>weather.host</td>
+                                <td>192.168.1.42</td>
+                            </tr>
+                            <tr>
+                                <td>weather.port</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <td>weather.timeout</td>
+                                <td>1000</td>
+                            </tr>
+                            <tr>
+                                <td>weather.poll.interval</td>
+                                <td>5000</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Config GPS Connection Listener -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">GPS Connection Listener</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>enable.gps.connector</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td>gps.host</td>
+                                <td>192.168.1.60</td>
+                            </tr>
+                            <tr>
+                                <td>gps.port</td>
+                                <td>11123</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Config Telemetry Data Forwarder -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Telemetry Data Forwarder</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>enable.data.forward</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td>data.forward.cron</td>
+                                <td>0 * * * * *</td>
+                            </tr>
+                            <tr>
+                                <td>data.forward.url</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Config Alerting and Lights -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Telemetry Data Forwarder</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>enable.alerts</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td>alerts.dir</td>
+                                <td>./config/alerts/</td>
+                            </tr>
+                            <tr>
+                                <td>alerts.values.file</td>
+                                <td>./config/alerts/Alert_Values.csv</td>
+                            </tr>
+                            <tr>
+                                <td>alerts.flags.file</td>
+                                <td>./config/alerts/Flag_Values.csv</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Config Route -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Route</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>route.file</td>
+                                <td>./config/route/routedata.csv</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Infrastructure section -->
+<div class='row' style='margin: 1em'>
+    <h1>Infrastructure Configuration</h1>
+</div>
+
+<!-- Java config -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Spring Configuration</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>spring.application.name</td>
+                                <td>Prohelion Telemetry</td>
+                            </tr>
+                            <tr>
+                                <td>spring.mvc.favicon.enabled</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td>server.port</td>
+                                <td>9000</td>
+                            </tr>
+                            <tr>
+                                <td>server.servlet.contextPath</td>
+                                <td>/</td>
+                            </tr>
+                            <tr>
+                                <td>server.servlet.session.timeout</td>
+                                <td>3600</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thymeleaf config -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header card-primary card-inverse">
+                <span class="card-title">Thymeleaf Configuration</span>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>spring.thymeleaf.cache</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td>spring.thymeleaf.enabled</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td>sprinng.thymeleaf.prefix</td>
+                                <td>classpath:/templates/</td>
+                            </tr>
+                            <tr>
+                                <td>spring.thymeleaf.suffix</td>
+                                <td>.html</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DataSource Configuration -->
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header card-primary card-inverse">
+            <span class="card-title">DataSource Configuration</span>
+        </div>
+        <div class="card-block">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>jdbc.driverClassName</td>
+                            <td>org.postgresql.Driver</td>
+                        </tr>
+                        <tr>
+                            <td>jdbc.url</td>
+                            <td>jdbc:postgresql://timescaledb:5432/prohelion</td>
+                        </tr>
+                        <tr>
+                            <td>jdbc.user</td>
+                            <td>prohelion</td>
+                        </tr>
+                        <tr>
+                            <td>jdbc.pass</td>
+                            <td>passw0rd!</td>
+                        </tr>
+                        <tr>
+                            <td>init-db</td>
+                            <td>false</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hibernate Configuration -->
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header card-primary card-inverse">
+            <span class="card-title">Hibernate Configuration</span>
+        </div>
+        <div class="card-block">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>hibernate.dialect</td>
+                            <td>org.hibernate.dialect.PostgreSQLDialect</td>
+                        </tr>
+                        <tr>
+                            <td>hibernate.show_sql</td>
+                            <td>false</td>
+                        </tr>
+                        <tr>
+                            <td>hibernate.hbm2ddl.auto</td>
+                            <td>validate</td>
+                        </tr>
+                        <tr>
+                            <td>spring.jpa.properties.hibernate.jdbc.time_zone</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Debugging Configuration -->
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header card-primary card-inverse">
+            <span class="card-title">Debugging Configuration</span>
+        </div>
+        <div class="card-block">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>logging.level.org.springframework.web</td>
+                            <td>INFO</td>
+                        </tr>
+                        <tr>
+                            <td>logging.level.org.hibernate</td>
+                            <td>ERROR</td>
+                        </tr>
+                        <tr>
+                            <td>logging.level.org.hibernate.SQL	</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>logging.level.org.hibernate.type.descriptor.sql.BasicBinder	</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                                <td>logging.level.org.springframework.transaction.interceptor		</td>
+                                <td></td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

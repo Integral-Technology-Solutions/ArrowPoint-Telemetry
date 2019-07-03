@@ -1,0 +1,55 @@
+<div class="animate">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header card-success card-inverse">
+                    <h3 class="card-title">Contextual Progressbars</h3>
+                </div>
+                <div class="card-block">
+                    <p><ngb-progressbar type="primary" [value]="65">65%</ngb-progressbar></p>
+                    <p><ngb-progressbar type="success" [value]="25">25%</ngb-progressbar></p>
+                    <p><ngb-progressbar type="info" [value]="50">50%</ngb-progressbar></p>
+                    <p><ngb-progressbar type="warning" [value]="75">75%</ngb-progressbar></p>
+                    <ngb-progressbar type="danger" [value]="100">100%</ngb-progressbar>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header card-primary card-inverse">
+                    <h3 class="card-title">Striped Progresbars</h3>
+                </div>
+                <div class="card-block">
+                    <p><ngb-progressbar type="primary" [value]="65" [striped]="true">65%</ngb-progressbar></p>
+                    <p><ngb-progressbar type="success" [value]="25" [striped]="true">25%</ngb-progressbar></p>
+                    <p><ngb-progressbar type="info" [value]="50" [striped]="true">50%</ngb-progressbar></p>
+                    <p><ngb-progressbar type="warning" [value]="75" [striped]="true">75%</ngb-progressbar></p>
+                    <p class="mb-0"><ngb-progressbar type="danger" [value]="100" [striped]="true">100%</ngb-progressbar></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card mb-0">
+                <div class="card-header card-warning card-inverse">
+                    <h3 class="card-title">Angular Dynamic Progressbars</h3>
+                </div>
+                <div class="card-block">
+                    <h5>Stacked</h5>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 15%"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%"></div>
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%"></div>
+                    </div>
+                    <hr />
+                    <h5>Dynamic <button type="button" class="btn btn-sm btn-primary" (click)="random()">Randomize</button></h5>
+                    <p><ngb-progressbar type="success" [value]="contextualProgressBars">{{contextualProgressBars}}</ngb-progressbar></p>
+                    <p><ngb-progressbar type="info" [value]="labelBar">Copying file <b>{{labelBar/25}} of 4</b>...</ngb-progressbar></p>
+                    <p><ngb-progressbar type="warning" [value]="animationProgressBar" [striped]="true" [animated]="true"><i>{{animationProgressBar}}%</i></ngb-progressbar></p>
+                    <p class="mb-0"><ngb-progressbar type="danger" [value]="100" [striped]="true">Completed!</ngb-progressbar></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

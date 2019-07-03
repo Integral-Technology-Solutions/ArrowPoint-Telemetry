@@ -1,0 +1,153 @@
+<nav class="navbar navbar-inverse fixed-top navbar-toggleable-sm">
+    <button class="navbar-toggler navbar-toggler-left" (click)="toggleSidebar()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-header hidden-md-up">
+        <a class="navbar-brand" href="javascript:void(0)">Ani Theme</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-toggleable-sm">
+        <form class="form-inline my-2 my-lg-0">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="">
+            </div>
+        </form>
+        <ul class="navbar-nav mr-auto ml-3">
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                    <i class="fa fa-envelope"></i>
+                    <span class="badge badge-pill badge-success">5</span>
+                </a>
+                <div class="dropdown-menu messages animated fadeIn">
+                    <a class="dropdown-item header" href="Javascript:void(0)">You have 4 unread messages.</a>
+                    <a class="dropdown-item" href="Javascript:void(0)">
+                        <div class="message-sender">{{ 'lucy' | translate }}</div>
+                        <div class="message-header">{{ 'topnavheader1' | translate }}</div>
+                    </a>
+                    <a class="dropdown-item" href="Javascript:void(0)">
+                        <div class="message-sender">{{ 'diptesh' | translate }}</div>
+                        <div class="message-header">{{ 'topnavheader2' | translate }}</div>
+                    </a>
+                    <a class="dropdown-item" href="Javascript:void(0)">
+                        <div class="message-sender">{{ 'weng' | translate }}</div>
+                        <div class="message-header">{{ 'topnavheader3' | translate }}</div>
+                    </a>
+                    <a class="dropdown-item" href="Javascript:void(0)">
+                        <div class="message-sender">{{ 'jade' | translate }}</div>
+                        <div class="message-header">{{ 'topnavheader4' | translate }}</div>
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-pill badge-danger">5</span>
+                </a>
+                <div class="dropdown-menu messages animated fadeIn">
+                    <a class="dropdown-item header" href="Javascript:void(0)">You have 3 new notifications.</a>
+                    <a class="dropdown-item dropdown-messages" href="Javascript:void(0)">
+                        <i class="fa fa-thumbs-up"></i> {{ 'runuma' | translate }}
+                    </a>
+                    <a class="dropdown-item dropdown-messages" href="Javascript:void(0)">
+                        <i class="fa fa-thumbs-up"></i> {{ 'harshita' | translate }}
+                    </a>
+                    <a class="dropdown-item dropdown-messages" href="Javascript:void(0)">
+                        <i class="fa fa-thumbs-up"></i> {{ 'archana' | translate }}
+                    </a>
+                    <a class="dropdown-item dropdown-messages" href="Javascript:void(0)">
+                        <i class="fa fa-thumbs-up"></i> {{ 'animesh' | translate }}
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-2">
+                <a class="btn buynow hidden-md-down" href="https://www.strapui.com/themes/ani-angular-2-bootstrap-4-theme/">Buy Now</a>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link " href="javascript:void(0)" ngbDropdownToggle>
+                    &nbsp;&nbsp;<i class="fa fa-circle fs-20"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+                    <table class="table color-swatches-table text-center no-m-b">
+                        <tr>
+                            <td class="text-center colorr">
+                                <a href="javascript:void(0)" (click)="changeTheme('blue')" class="theme-picker">
+                                    <i class="fa fa-circle fs-20 blue-base"></i>
+                                </a>
+                            </td>
+                            <td class="text-center colorr">
+                                <a href="javascript:void(0)" (click)="changeTheme('green')" class="theme-picker">
+                                    <i class="fa fa-circle fs-20 green-base"></i>
+                                </a>
+                            </td>
+                            <td class="text-center colorr">
+                                <a href="javascript:void(0)" (click)="changeTheme('red')" class="theme-picker">
+                                    <i class="fa fa-circle fs-20 red-base"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center colorr">
+                                <a href="javascript:void(0)" (click)="changeTheme('purple')" class="theme-picker">
+                                    <i class="fa fa-circle fs-20 purple-base"></i>
+                                </a>
+                            </td>
+                            <td class="text-center colorr">
+                                <a href="javascript:void(0)" (click)="changeTheme('midnight-blue')" class="theme-picker">
+                                    <i class="fa fa-circle fs-20 midnight-blue-base"></i>
+                                </a>
+                            </td>
+                            <td class="text-center colorr">
+                                <a href="javascript:void(0)" (click)="changeTheme('lynch')" class="theme-picker">
+                                    <i class="fa fa-circle fs-20 lynch-base"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)" (click)="rltAndLtr()">RTL/LTR</a>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                    {{ 'lang' | translate }}
+                </a>
+                <div class="dropdown-menu animated fadeIn">
+                    <a class="dropdown-item" href="Javascript:void(0)" (click)="changeLang('en')">English</a>
+                    <a class="dropdown-item" href="Javascript:void(0)" (click)="changeLang('de')">Dutch</a>
+                    <a class="dropdown-item" href="Javascript:void(0)" (click)="changeLang('ur')">اردو</a>
+                    <a class="dropdown-item" href="Javascript:void(0)" (click)="changeLang('hi')">हिन्दी</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle>
+                    <img src="/assets/images/flat-avatar.png" class="topnav-img" alt="Profile" style="height: 20px"> Ani Pascal
+                </a>
+                <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+                    <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">
+                        {{ 'profilee' | translate }}
+                    </a>
+                    <a class="dropdown-item" [routerLink]="['/']">
+                        {{ 'logout' | translate }}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="navbar-toggler navbar-toggler-right profile-sm" ngbDropdown>
+        <a class="navbar-toggler navbar-toggler-right dropdown-toggle" ngbDropdownToggle>
+            <img src="/assets/images/flat-avatar.png" class="topnav-img" alt="Profile">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+            <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">
+                {{ 'profilee' | translate }}
+            </a>
+            <a class="dropdown-item" [routerLink]="['/']">
+                {{ 'logout' | translate }}
+            </a>
+        </div>
+    </div>
+</nav>

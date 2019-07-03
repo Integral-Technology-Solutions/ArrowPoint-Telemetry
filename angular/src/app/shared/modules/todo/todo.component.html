@@ -1,0 +1,30 @@
+<div class="card card-danger mb-0 todo-container">
+    <div class="card-header">
+        <div class="todo-header text-center">
+            <h4><i class="fa fa-tasks"></i>&nbsp;{{ 'todo' | translate }}</h4>
+        </div>
+    </div>
+    <div class="card-block" style="padding-bottom: 0;">
+        <div class="todo-body">
+            <perfect-scrollbar class="todo-list-wrap">
+                <ul class="todo-list">
+                    <li *ngFor="let name of nameList;let i = index">
+                        <label class="checkbox1 animated bounceInDown">
+                            <input type="checkbox" id="{{i}}">
+                            <span></span>
+                        </label>
+                        <label htmlFor="{{i}}" class="done animated bounceInRight">{{name}}</label>
+                    </li>
+                </ul>
+            </perfect-scrollbar>
+            <form class="todo-from-bottom" (submit)="addName()">
+                <p class="input-group">
+                    <input [(ngModel)]="newName" name="newName" class="form-control">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-danger">Add</button>
+                    </span>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

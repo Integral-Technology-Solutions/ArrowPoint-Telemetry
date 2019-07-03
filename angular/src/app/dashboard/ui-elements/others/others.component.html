@@ -1,0 +1,169 @@
+<div class="animate">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+            <div class="card-header card-primary card-inverse">
+                    <h3 class="card-title">List Group</h3>
+                </div>
+                <div class="card-block">
+                    <ul class="list-group">
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                    <ul class="list-group m-t-1">
+                        <li class="list-group-item">
+                            <span class="label label-default label-pill pull-xs-right">14</span>
+                            Cras justo odio
+                        </li>
+                    </ul>
+                    <div class="list-group m-t-1">
+                        <a href="#" class="list-group-item active">
+                            Cras justo odio
+                        </a>
+                        <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item">Morbi leo risus</a>
+                        <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item">Vestibulum at eros</a>
+                    </div>
+                    <div class="list-group m-t-1">
+                        <a href="#" class="list-group-item list-group-item-success">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-info">Cras sit amet nibh libero</a>
+                        <a href="#" class="list-group-item list-group-item-warning">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item list-group-item-danger">Vestibulum at eros</a>
+                    </div>
+                    <div class="list-group m-t-1">
+                        <a href="#" class="list-group-item active">
+                            <h5 class="list-group-item-heading">List group item heading</h5>
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione officiis totam eos optio!</p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <h5 class="list-group-item-heading">List group item heading</h5>
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione officiis totam eos optio!</p>
+                        </a>
+                        <a href="#" class="list-group-item">
+                            <h5 class="list-group-item-heading">List group item heading</h5>
+                            <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione officiis totam eos optio!</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header card-warning card-inverse">
+                    <h3 class="card-title">Labels</h3>
+                </div>
+                <div class="card-block">
+                    <span class="badge badge-default">Default</span>
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-info">Info</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-danger">Danger</span>
+                    <br><br>
+                    <span class="badge badge-default">14</span>
+                    <span class="badge badge-primary">14</span>
+                    <span class="badge badge-success">14</span>
+                    <span class="badge badge-info">14</span>
+                    <span class="badge badge-warning">14</span>
+                    <span class="badge badge-danger">14</span>
+                    <span class="badge badge-primary"><i class="fa fa-star"></i></span>
+                    <span class="badge badge-primary"><i class="fa fa-certificate"></i></span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header card-danger card-inverse">
+                    <h3 class="card-title">Carousel</h3>
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ngb-carousel interval="5000" class="text-slider text-center">
+                                <ng-template ngbSlide>
+                                    <p>Success is not final, failure is not fatal: it is the courage to continue that counts.</p>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <p>To succeed in life, you need two things: ignorance and confidence.</p>
+                                </ng-template>
+                                <ng-template ngbSlide>
+                                    <p>Success is how high you bounce when you hit bottom.</p>
+                                </ng-template>
+                            </ngb-carousel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header card-info card-inverse">
+                    <h3 class="card-title">Carousel</h3>
+                </div>
+                <div class="card-block">
+                    <ngb-carousel interval="5000">
+                        <ng-template ngbSlide>
+                            <img src="assets/images/slider0.jpg" height="200px">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="assets/images/slider1.jpg" height="200px">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="assets/images/slider2.jpg" height="200px">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img src="assets/images/slider3.jpg" height="200px">
+                        </ng-template>
+                        <!-- <i class="fa fa-chevron-left left carousel-control"></i>
+                        <i class="fa fa-chevron-right right carousel-control"></i> -->
+                    </ngb-carousel>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header card-danger card-inverse">
+                    <h3 class="card-title">Tooltip</h3>
+                </div>
+                <div class="card-block">
+                    <button class="btn btn-primary" placement="top" ngbTooltip="On the Top!">Top Tooltip</button>
+                    <button class="btn btn-primary" placement="bottom" ngbTooltip="On the Bottom!">Bottom Tooltip</button>
+                    <button class="btn btn-primary" placement="left" ngbTooltip="On the Left!">Left Tooltip</button>
+                    <button class="btn btn-primary" placement="right" ngbTooltip="On the Right!">Right Tooltip</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header card-danger card-inverse">
+                    <h3 class="card-title">Popover</h3>
+                </div>
+                <div class="card-block">
+                    <button type="button" class="btn btn-secondary" placement="top"
+                            ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                            popoverTitle="Popover on top"
+                    >
+                        Popover on top
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" placement="right"
+                            ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                            popoverTitle="Popover on right"
+                    >
+                        Popover on right
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" placement="bottom"
+                            ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                            popoverTitle="Popover on bottom"
+                    >
+                        Popover on bottom
+                    </button>
+
+                    <button type="button" class="btn btn-secondary" placement="left"
+                            ngbPopover="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                            popoverTitle="Popover on left"
+                    >
+                        Popover on left
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

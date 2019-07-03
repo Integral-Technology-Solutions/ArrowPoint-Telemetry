@@ -1,44 +1,54 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
+
+
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ToasterService } from 'angular2-toaster';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from 'src/app/modules/material.module';
-import { Routes, RouterModule,  PreloadAllModules, Route, PreloadingStrategy } from '@angular/router';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { NavOptionComponent } from './components/small-components/nav-option/nav-option.component';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-import { initializer } from './app-init';
-import { AppAuthGuardService } from './services/app-auth-guard.service';
-import { NavMenuComponent } from './components/navigation/nav-menu/nav-menu.component';
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+}
 
-const routes: Routes = [
-   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-   { path: 'dashboard', loadChildren: './modules/dashboard.module#DashboardModule', canActivate: [AppAuthGuardService]}
-];
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    NavOptionComponent,
-    NavMenuComponent,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    KeycloakAngularModule,
-    MaterialModule,
-    RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules}),
-  ],
-  providers: [{
-    provide: APP_INITIALIZER,
-    useFactory: initializer,
-    multi: true,
-    deps: [KeycloakService]
-  }],
-  bootstrap: [AppComponent],
-  // exports: [RouterModule]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        HttpClientModule,
+        NgProgressModule.forRoot(),
+        NgProgressHttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+        AppRoutingModule,
+        PerfectScrollbarModule,
+    ],
+    schemas: [
+      CUSTOM_ELEMENTS_SCHEMA
+    ],
+    providers: [
+      ToasterService,
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
