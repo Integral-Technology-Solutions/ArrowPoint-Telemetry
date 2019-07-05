@@ -130,7 +130,7 @@
                     <a class="dropdown-item" [routerLink]="['/dashboard', 'profile']">
                         {{ 'profilee' | translate }}
                     </a>
-                    <a class="dropdown-item" [routerLink]="['/']">
+                    <a class="dropdown-item" (click)='logout()'>
                         {{ 'logout' | translate }}
                     </a>
                 </div>

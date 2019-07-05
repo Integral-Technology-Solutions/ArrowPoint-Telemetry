@@ -7,6 +7,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { TopnavComponent, SidebarComponent } from '../shared';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { BmsService } from 'app/services/bms.service';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
         DashboardComponent,
         TopnavComponent,
         SidebarComponent,
-    ]
+    ],
+    providers: [BmsService]
 })
 export class DashboardModule { }

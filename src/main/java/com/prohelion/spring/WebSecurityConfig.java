@@ -13,49 +13,69 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
 @PropertySource({"classpath:application.properties"})
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
 	private Environment env;
 	
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-        	.csrf().disable()
-            .authorizeRequests()
-                .antMatchers("/css/**","/img/**","/js/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/forward-data.json").permitAll()
-                .antMatchers(HttpMethod.POST, "/car-data.json").permitAll()
-                .antMatchers(HttpMethod.GET, "/measurement-data.json").permitAll()
-                .anyRequest().authenticated()
-                .and()
-            .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .defaultSuccessUrl("/index.html", true)
-                .and()
-            .logout()
-            	.deleteCookies("JSESSIONID")
-                .permitAll()
-             .and()
-                .rememberMe().key("!uniqueAndSecretKeyThatOnlyWeWouldKnow!");
+//        http
+//                .cors().and()
+//        	.csrf().disable()
+//            .authorizeRequests()
+//                .antMatchers("/css/**","/img/**","/js/**").permitAll()
+//                .antMatchers(HttpMethod.POST, "/forward-data.json").permitAll()
+//                .antMatchers(HttpMethod.POST, "/car-data.json").permitAll()
+//                .antMatchers(HttpMethod.GET, "/measurement-data.json").permitAll()
+//                .anyRequest().authenticated()
+//                .and()
+//            .formLogin()
+//                .loginPage("/login")
+//                .permitAll()
+//                .defaultSuccessUrl("/index.html", true)
+//                .and()
+//            .logout()
+//            	.deleteCookies("JSESSIONID")
+//                .permitAll()
+//             .and()
+//                .rememberMe().key("!uniqueAndSecretKeyThatOnlyWeWouldKnow!");
     }
+
+//    @Bean
+//    @Override
+//    public UserDetailsService userDetailsService() {
+//        @SuppressWarnings("deprecation")
+//		UserDetails user =
+//             User.withDefaultPasswordEncoder()
+//                .username(env.getProperty("telemetry.username"))
+//                .password(env.getProperty("telemetry.password"))
+//                .roles("USER")
+//                .build();
+//
+//        return new InMemoryUserDetailsManager(user);
+//    }
 
     @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        @SuppressWarnings("deprecation")
-		UserDetails user =
-             User.withDefaultPasswordEncoder()
-                .username(env.getProperty("telemetry.username"))
-                .password(env.getProperty("telemetry.password"))
-                .roles("USER")
-                .build();
-
-        return new InMemoryUserDetailsManager(user);
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**");
+            }
+        };
     }
+
 }

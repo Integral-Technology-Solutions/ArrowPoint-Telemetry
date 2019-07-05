@@ -10,8 +10,13 @@ const keycloakConfig: KeycloakConfig = {
     clientId: 'tutorial-frontend',
   };
 
+const server = {
+  url: 'http://localhost:9000',
+}
+
 
 export const environment = {
     production: false,
-    keycloak: keycloakConfig
+    keycloak: keycloakConfig,
+    server: server
 };

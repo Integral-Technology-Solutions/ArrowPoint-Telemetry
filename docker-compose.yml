@@ -5,17 +5,21 @@ volumes:
   opt-splunk-var:
   postgres_data:
     driver: local
+  keycloak_theme:
+    driver: local
 
 services: 
     timescaledb:
         image: prohelion/timescaledb-with-data:0.4
         environment:
+            POSTGRES_DB: keycloak
             POSTGRES_USER: "prohelion"
             POSTGRES_PASSWORD: "passw0rd!"
         ports:
             - 5432:5432
         restart: unless-stopped            
-   
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
     pgadmin:
         image: prohelion/pgadmin4:0.4
         depends_on:
@@ -49,31 +53,25 @@ services:
             - 9999:9999
             - 1514:1514
 
-    postgres:
-        image: postgres
-        volumes:
-            - postgres_data:/var/lib/postgresql/data
-        environment:
-            POSTGRES_DB: keycloak
-            POSTGRES_USER: keycloak
-            POSTGRES_PASSWORD: password
-
     keycloak:
         image: jboss/keycloak
         environment:
-            DB_VENDOR: POSTGRES
-            DB_ADDR: postgres
+            # DB_VENDOR: POSTGRES
+            # DB_ADDR: postgres
             DB_DATABASE: keycloak
-            DB_USER: keycloak
-            DB_PASSWORD: password
+            DB_USER: prohelion
+            DB_PASSWORD: passw0rd!
             KEYCLOAK_USER: admin
             KEYCLOAK_PASSWORD: admin
             # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
             #JDBC_PARAMS: "ssl=true"
+        volumes:
+            - ./keycloak/prohelion-theme:/opt/jboss/keycloak/themes/prohelion-theme
         ports:
             - 8080:8080
         depends_on:
-            - postgres
+            # - postgres
+            - timescaledb
 
     # angular-app:
     #     build: ./angular
@@ -85,6 +83,7 @@ services:
     #     volumes:
     #         - ./angular:/app
     #         - /app/node_modules/
+    
 # This will only work on linux as it requires network_mode: host
 # For other platforms run the service in SpringBoot locally or Tomcat       
 #    telemetry:        

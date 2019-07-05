@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../../environments/environment';
+import { AppAuthGuardService } from 'app/services/app-auth-guard.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-topnav',
@@ -9,7 +11,8 @@ import { environment } from '../../../../environments/environment';
 })
 export class TopnavComponent implements OnInit {
 
-    constructor(private translate: TranslateService) { }
+    constructor(private translate: TranslateService,
+        private authService: AppAuthGuardService) { }
 
     ngOnInit() {}
 
@@ -41,5 +44,9 @@ export class TopnavComponent implements OnInit {
         link.setAttribute('href', path);
         document.head.appendChild(link);
 
+    }
+
+    logout() {
+        this.authService.onLogout('/');
     }
 }

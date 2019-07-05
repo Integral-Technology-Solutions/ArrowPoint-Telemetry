@@ -187,6 +187,10 @@
 		</plugins>
 	</reporting>
 	<dependencies>
+		<dependency>
+			<groupId>org.keycloak</groupId>
+			<artifactId>keycloak-spring-boot-starter</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -243,6 +247,7 @@
 			<artifactId>splunk</artifactId>
 			<version>1.6.3.0</version>
 		</dependency>
+
 
 		<!-- JUnit platform launcher -->
 		<!-- To be able to run tests from IDE directly -->
@@ -330,6 +335,7 @@
     		<artifactId>postgresql</artifactId>
 		</dependency>
 	</dependencies>
+
 	<organization>
 		<name>Prohelion</name>
 		<url>www.prohelio.com</url>

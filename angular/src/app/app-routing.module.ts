@@ -4,9 +4,12 @@ import { AppAuthGuardService } from './services/app-auth-guard.service';
 
 
 const routes: Routes = [
+    // {
+    //     path: '',
+    //     loadChildren: './login/login.module#LoginModule'
+    // },
     {
-        path: '',
-        loadChildren: './login/login.module#LoginModule'
+        path: '', redirectTo: '/dashboard/home', pathMatch: 'full'
     },
     {
         path: 'signup',
@@ -14,7 +17,8 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        loadChildren: './dashboard/dashboard.module#DashboardModule'
+        loadChildren: './dashboard/dashboard.module#DashboardModule',
+        canActivate: [AppAuthGuardService]
     },
     {
         path: 'error',

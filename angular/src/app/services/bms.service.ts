@@ -8,11 +8,16 @@ import { of } from 'rxjs/observable/of';
 @Injectable({
   providedIn: 'root'
 })
-export class WebService {
+export class BmsService {
 
   constructor(private http: HttpClient) { }
 
   getDeviceList(url: string): Observable<any> {
     return this.http.get<any>(url);
   }
+
+  getDPData(url) {
+    return this.http.get<any>(url);
+  }
+
 }
