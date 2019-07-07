@@ -34,9 +34,9 @@ public class BMSController extends AbstractController {
     }
 
     @RequestMapping(value = { "/test" }, method = RequestMethod.GET)
-    public String getBMSDashboard2(Model model) {
+    public @ResponseBody String getBMSDashboard2(Model model) {
        // model.addAttribute("devices", getDevices());
-        return "{WORKING}";
+        return "Testing, Testing, 1, 2, 3 ...";
     }
 
     @RequestMapping(value = { "/bms.json" }, method = RequestMethod.GET, params = { "canId" })
