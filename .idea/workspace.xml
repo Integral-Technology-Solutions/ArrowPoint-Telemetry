@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34e4d0d3-4834-40e0-9396-75a9ccc6a32e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prohelion/model/BatteryManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/dashboard/battery/battery.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/dashboard/battery/battery.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular/src/app/dashboard/battery/battery.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/dashboard/battery/battery.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/angular/src/app/dashboard/battery/battery.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/dashboard/battery/battery.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/prohelion/web/controller/BMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prohelion/web/controller/BMSController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bms.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/bms.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,7 +25,7 @@
           <entry key="css" value="1" />
           <entry key="html" value="3" />
           <entry key="java" value="23" />
-          <entry key="js" value="1" />
+          <entry key="js" value="2" />
           <entry key="png" value="1" />
           <entry key="properties" value="2" />
           <entry key="xml" value="2" />
@@ -42,7 +37,7 @@
           <entry key="HTML" value="3" />
           <entry key="Image" value="1" />
           <entry key="JAVA" value="23" />
-          <entry key="JavaScript" value="1" />
+          <entry key="JavaScript" value="2" />
           <entry key="Properties" value="2" />
           <entry key="XML" value="2" />
         </counts>
@@ -105,8 +100,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/resources/templates/bms.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3915">
+                <state relative-caret-position="3457">
                   <caret line="261" column="4" selection-start-line="261" selection-start-column="4" selection-end-line="270" selection-end-column="33" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/bms.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-42">
+                  <caret column="39" selection-start-column="39" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -116,15 +120,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="675">
                   <caret line="45" column="28" lean-forward="true" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/bms.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="39" selection-start-column="39" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -503,12 +498,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562045936179</updated>
-      <workItem from="1562045938996" duration="17490000" />
+      <workItem from="1562045938996" duration="17904000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17490000" />
+    <option name="totallyTimeSpent" value="17904000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-480" y="-1080" width="1920" height="1080" extended-state="0" />
@@ -736,13 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/bms.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3915">
-          <caret line="261" column="4" selection-start-line="261" selection-start-column="4" selection-end-line="270" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -750,9 +738,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/bms.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3457">
+          <caret line="261" column="4" selection-start-line="261" selection-start-column="4" selection-end-line="270" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/bms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="-42">
           <caret column="39" selection-start-column="39" selection-end-column="39" />
         </state>
       </provider>

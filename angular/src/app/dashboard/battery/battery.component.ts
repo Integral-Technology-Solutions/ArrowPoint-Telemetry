@@ -42,7 +42,12 @@ export class BatteryComponent implements OnInit, OnDestroy {
         return msrmntData.iv;
       }
     } else {
-      return Number((msrmntData.fv / divisor)).toFixed(2);
+      if (msrmntData.cId === 28484) {
+        return (eval(Number((msrmntData.fv / divisor)).toFixed(2)) + '%').toString();
+
+      } else {
+        return eval(Number((msrmntData.fv / divisor)).toFixed(2));
+      }
     }
   }
 
