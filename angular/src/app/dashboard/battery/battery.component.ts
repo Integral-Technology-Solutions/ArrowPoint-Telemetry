@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BmsService } from 'app/services/bms.service';
 import { environment } from '../../../environments/environment';
 import { timer } from 'rxjs';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-battery',
@@ -10,6 +11,11 @@ import { timer } from 'rxjs';
 })
 export class BatteryComponent implements OnInit, OnDestroy {
   subscribe: any;
+  chart = []; // Holds the battery chart
+  dataSets = [];
+  socYAxis = [];
+  socXAxis = [];
+  graphColor = [];
 
   bmsSub = {
     next: res => {
@@ -20,6 +26,16 @@ export class BatteryComponent implements OnInit, OnDestroy {
     complete: () => {
       // console.log('complete');
     },
+  }
+
+  batterySoc = {
+    // label: this.whatGraph,
+    data: this.socYAxis,
+    labels: this.socXAxis,
+    pointBackgroundColor: this.graphColor,
+    fill: false,
+    borderColor: 'green', //This sets the line color of the plot
+    backgroundColor: 'transparent',
   }
 
   constructor(private bmsService: BmsService) { }
@@ -43,7 +59,7 @@ export class BatteryComponent implements OnInit, OnDestroy {
       }
     } else {
       if (msrmntData.cId === 28484) {
-        return (eval(Number((msrmntData.fv / divisor)).toFixed(2)) + '%').toString();
+        return (eval(Number((msrmntData.fv / divisor)).toFixed(2)) * 100 + '%').toString();
 
       } else {
         return eval(Number((msrmntData.fv / divisor)).toFixed(2));
@@ -77,9 +93,53 @@ export class BatteryComponent implements OnInit, OnDestroy {
     });
   }
 
+  initChartData() {
+    this.initChart(); // Init the chart
+    this.batterySoc.data = this.socYAxis; // Set the soc object y data
+    this.dataSets.push(this.batterySoc); // push to data sets array
+    //@ts-ignore
+    this.chart.data.labels = this.socXAxis;
+    this.updateTheChart(this.chart);
+  }
+
+  updateTheChart(chart) {
+    chart.update();
+  }
+
+  initChart() {
+    this.chart = new Chart('myChart', {
+      type: 'line',
+      data: {
+        labels: this.socXAxis, //labels not included in the dataset
+        datasets: this.dataSets,
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [{
+            display: true
+          }],
+          yAxes: [{
+            display: true
+          }]
+        },
+        animation: {
+          duration: 0, // general animation time
+      },
+      hover: {
+          animationDuration: 0, // duration of animations when hovering an item
+      },
+      responsiveAnimationDuration: 0, // animation duration after a resize
+      }
+    });
+  }
+
   // On init life cycle hook
   ngOnInit() {
    this.runOnTimerTick();
+   this.initChartData();
   }
 
   // On destroy life cycle hook
