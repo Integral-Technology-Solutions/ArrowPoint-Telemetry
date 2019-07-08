@@ -1,3 +1,5 @@
+// This file is only used for thymeleaf
+
 $(function() {
 
 	function getDPVal(msrmntData, divisor) {
@@ -13,7 +15,6 @@ $(function() {
 			var numberToReturn = msrmntData.fv / divisor; 
 			return  Number(numberToReturn.toFixed(2));
 		}
-			
 	}
 
 	function setCellValue(msrmntData, divisor) {
@@ -61,9 +62,6 @@ $(function() {
 		getDPData(1548,1);
 		getDPData(1550,1);
 		getDPData(1551,1);
-		
-		
-		
 	}
 	
 	function update() {
