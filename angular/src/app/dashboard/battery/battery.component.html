@@ -1,12 +1,72 @@
 <!-- Soc graph -->
-<div class="card">
-        <div class="card-header card-primary card-inverse">
-            <span class="card-title">State Of Charge</span>
-        </div>
-        <div class="card-block">
-                <canvas id="myChart" style='height:10%; width: 100%'>{{ chart }}</canvas>
-        </div>
+<div class="card" style=''>
+    <div class="card-header card-primary card-inverse">
+        <span class="card-title">State Of Charge</span>
+    </div>
+    <div class="card-block" style='height:40%; width:100%;'>
+                <!-- Drop down menu -->
+                <div class="btn-group" ngbDropdown [class.show]="showSocMenu">
+                        <button type="button"  (click)="toggle('soc')" class="btn btn-secondary dropdown-toggle" ngbDropdownToggle style='margin-bottom: 1em'>
+                            Range <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" style='margin-bottom: 1em'>
+                            <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("minsoc")'>Min</a></li>
+                            <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("hoursoc")'>Hour</a></li>
+                            <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("weeksoc")'>Week</a></li>
+                            <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("alltimesoc")'>All Time</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-secondary" style='margin-bottom: 1em; margin-left: 1em;' (click)="refreshData()">Refresh</button>
+                    </div>
+        <canvas id="socChart">{{ chart }}</canvas>
+    </div>
 </div>
+
+<!-- Voltage graph -->
+<div class="card" style=''>
+        <div class="card-header card-primary card-inverse">
+            <span class="card-title">Voltage</span>
+        </div>
+        <div class="card-block" style='height:40%; width:100%;'>
+                    <!-- Drop down menu -->
+                    <div class="btn-group" ngbDropdown [class.show]="showVoltageMenu">
+                            <button type="button"  (click)="toggle('voltage')" class="btn btn-secondary dropdown-toggle" ngbDropdownToggle style='margin-bottom: 1em'>
+                                Range <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" style='margin-bottom: 1em'>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("minvoltage")'>Min</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("hourvoltage")'>Hour</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("weekvoltage")'>Week</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("alltimevoltage")'>All Time</a></li>
+                            </ul>
+                            <button type="button" class="btn btn-secondary" style='margin-bottom: 1em; margin-left: 1em;' (click)="refreshData()">Refresh</button>
+                        </div>
+            <canvas id="voltageChart">{{ voltageChart }}</canvas>
+        </div>
+    </div>
+
+<!-- Current graph -->
+<div class="card" style=''>
+        <div class="card-header card-primary card-inverse">
+            <span class="card-title">Current</span>
+        </div>
+        <div class="card-block" style='height:40%; width:100%;'>
+                    <!-- Drop down menu -->
+                    <div class="btn-group" ngbDropdown [class.show]="showCurrentMenu">
+                            <button type="button"  (click)="toggle('current')" class="btn btn-secondary dropdown-toggle" ngbDropdownToggle style='margin-bottom: 1em'>
+                                Range <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" style='margin-bottom: 1em'>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("mincurrent")'>Min</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("hourcurrent")'>Hour</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("weekcurrent")'>Week</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="javascript:void(0)" (click)='rangeSelect("alltimecurrent")'>All Time</a></li>
+                            </ul>
+                            <button type="button" class="btn btn-secondary" style='margin-bottom: 1em; margin-left: 1em;' (click)="refreshData()">Refresh</button>
+                        </div>
+            <canvas id="currentChart">{{ currentChart }}</canvas>
+        </div>
+    </div>
+
 <!-- Battery State of charge / balance -->
 <div class="col-lg-12">
     <div class="card">

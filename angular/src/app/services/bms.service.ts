@@ -20,4 +20,15 @@ export class BmsService {
     return this.http.get<any>(url);
   }
 
+  getSocGraphData(url) {
+    return this.http.get<any>(url);
+  }
+  getVoltageGraphData(url) {
+    return this.http.get<any>(url);
+  }
+
+  getCurrentGraphData(url) {
+    return this.http.get<any>(url);
+  }
+
 }

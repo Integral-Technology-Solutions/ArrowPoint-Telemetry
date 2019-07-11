@@ -1,16 +1,12 @@
 package com.prohelion.web.controller;
 
-import com.prohelion.dao.MeasurementDataRepository;
-import com.prohelion.dao.SocData;
-import com.prohelion.model.SocChartData;
+import com.prohelion.model.ChartData;
+import com.prohelion.web.services.GraphService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @Controller
@@ -18,58 +14,47 @@ import java.util.stream.Collectors;
 public class GraphController {
 
     @Autowired
-    MeasurementDataRepository measurementDataRepository;
+    GraphService graphService;
 
-    @RequestMapping(value = { "/soc.json" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/graph-data.json" }, method = RequestMethod.GET)
     public @ResponseBody
-    HashMap<String, SocResponseWrapper> getBMSCanData()
+    HashMap<String, ResponseWrapper> getGraphData(@RequestParam String bucketInterval, @RequestParam String timeInterval, @RequestParam String graphName)
     {
-        Collection<SocData> d =  measurementDataRepository.findSocOneDay(); // Get all of the data for Soc based on query
-        List<String> tstamp = d.stream().map(SocData -> SocData.getTstamp()).collect(Collectors.toList());
-        List<Float> soc = d.stream().map(SocData -> SocData.getSoc()).collect(Collectors.toList()); // Place data into lists
-        List<SocChartData> chartData = new ArrayList<>();
-        for(int i = 0; i < soc.size(); i++) {
-            chartData.add(new SocChartData(tstamp.get(i), soc.get(i))); // Create chart data objects
-        }
-        HashMap<String, SocResponseWrapper> response = new HashMap<>();
-        response.put("results", new SocResponseWrapper(new SocMetaData("2019-07-08 16:01:00.0", //TODO: Meta data is going to be URL params from angular
-                "2019-07-08 14:58:00.0", 1),
-                chartData));
-        return response;
+        return graphService.graphApi(bucketInterval, timeInterval, graphName);
     }
 
-    class SocResponseWrapper {
-        private SocMetaData meta;
-        private List<SocChartData> data;
+    public static class ResponseWrapper {
+        private MetaData meta;
+        private List<ChartData> data;
 
-        public SocResponseWrapper(SocMetaData meta, List<SocChartData> data) {
+        public ResponseWrapper(MetaData meta, List<ChartData> data) {
             this.meta = meta;
             this.data = data;
         }
 
-        public SocMetaData getMeta() {
+        public MetaData getMeta() {
             return meta;
         }
 
-        public void setMeta(SocMetaData meta) {
+        public void setMeta(MetaData meta) {
             this.meta = meta;
         }
 
-        public List<SocChartData> getData() {
+        public List<ChartData> getData() {
             return data;
         }
 
-        public void setData(List<SocChartData> data) {
+        public void setData(List<ChartData> data) {
             this.data = data;
         }
     }
 
-    class SocMetaData {
+    public static class MetaData {
         private String startDate;
         private String endDate;
-        private int timeBucketMins;
+        private String timeBucketMins;
 
-        public SocMetaData(String startDate, String endDate, int timeBucketGroupingValue) {
+        public MetaData(String startDate, String endDate, String timeBucketGroupingValue) {
             this.startDate = startDate;
             this.endDate = endDate;
             this.timeBucketMins = timeBucketGroupingValue;
@@ -91,11 +76,11 @@ public class GraphController {
             this.endDate = endDate;
         }
 
-        public int getTimeBucketMins() {
+        public String getTimeBucketMins() {
             return timeBucketMins;
         }
 
-        public void setTimeBucketMins(int timeBucketGroupingValue) {
+        public void setTimeBucketMins(String timeBucketGroupingValue) {
             this.timeBucketMins = timeBucketGroupingValue;
         }
     }
